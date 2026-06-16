@@ -1,1 +1,1 @@
-# page
+# This contains code for an static webpage.
