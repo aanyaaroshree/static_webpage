@@ -3,6 +3,9 @@ const stopBtn = document.getElementById("stopBtn");
 const captureBtn = document.getElementById("captureBtn");
 
 const logList = document.getElementById("logList");
+const videoPlayer = document.getElementById("videoPlayer");
+
+let stream;
 let logcount=0;
 function addLog(message) {
     if(logcount >= 6) {
@@ -19,13 +22,45 @@ logcount++;
 
 }
 
-startBtn.addEventListener("click", () => {
-addLog("Button [Start] Clicked");
+startBtn.addEventListener("click", async () => {
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        });
+
+        videoPlayer.srcObject = stream;
+
+        addLog("Button [Start] Clicked");
+    } catch (error) {
+        console.error(error);
+        addLog("Camera Access Denied");
+    }
 });
 
 stopBtn.addEventListener("click", () => {
-addLog("Button [Stop] Clicked");
+
+    if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+
+        videoPlayer.srcObject = null;
+
+        addLog("Button [Stop] Clicked");
+    }
 });
 captureBtn.addEventListener("click", () => {
-addLog("Button [Capture] Clicked");
+    if (!stream || !stream.active) {
+        addLog("Camera is not running");
+        return;
+    }
+
+    const flash = document.getElementById("flash");
+
+    flash.classList.add("flash-animation");
+
+    setTimeout(() => {
+        flash.classList.remove("flash-animation");
+    }, 300);
+
+    addLog("Button [Capture] Clicked");
 });
