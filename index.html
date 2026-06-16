@@ -4,10 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My static webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap"
+    rel="stylesheet" />
 </head>
 <body>
     <h1>Hi There!</h1>
-    
+    <body>
+
+    <div class="container">
+
+        <div class="video-section">
+
+            <video id="videoPlayer"></video>
+            <p> Click the buttons below to control the video! </p>
+
+            <div class="controls">
+                <button id="startBtn">Start</button>
+                <button id="stopBtn">Stop</button>
+                <button id="captureBtn">Capture</button>
+            
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+            <h3>Activity Log</h3>
+
+            <ul id="logList"></ul>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
 
 </body>
 </html>
