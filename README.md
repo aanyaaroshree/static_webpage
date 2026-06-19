@@ -1,4 +1,4 @@
-# This contains code for a static webpage.
+# STATIC WEBPAGE(HTML+CSS+VANILLA JS)[TASK-1]
 
 #Overview
 
@@ -22,10 +22,10 @@ This project is a standalone webcam dashboard built using HTML, CSS, and Vanilla
 - CSS
 - JavaScript 
 - Browser APIs
- - MediaDevices API
- - DOM API
- - Event API
- - Timer API
+    1. MediaDevices API
+    2. DOM API
+    3. Event API
+    4. Timer API
 
 #Running the Project
 
